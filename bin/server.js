@@ -47,7 +47,7 @@ function createServer() {
         } else if ($https.pfx) {
             httpsOption = {
                 pfx: fs.readFileSync($https.pfx, 'utf8'),
-                passphrase: fs.readFileSync($https.pass, 'utf8')
+                passphrase: $https.pass
             };
         }
         
