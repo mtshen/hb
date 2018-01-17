@@ -52,6 +52,7 @@ let route = (request, response, requestData) => {
     let {pathname, query} = reqUrlOption;
     // 1. 获取url
     let {method} = request;
+    console.log(requestData);
     requestData = JSONParseData((method === 'POST' ? requestData : query));
     let answer = Think.getAnswer(request.headers.host);
     if (!answer) return response.writeHead(404), response.end(), false;
