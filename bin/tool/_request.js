@@ -29,6 +29,7 @@ function request({
     delete requestData.data;
     let chunks = [];
     let chunkSize = 0;
+    console.log('requestData:', requestData);
     var req = http.request(requestData, function (res) {
         res.on('data', function (chunk) {
             chunks.push(chunk);
