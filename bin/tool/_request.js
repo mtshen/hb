@@ -47,7 +47,7 @@ function request({
     });
 
     req.on('error', function (e) {
-        fail(e);
+        fail && fail(e);
     });
 
     req.end($data);
