@@ -3,7 +3,7 @@ const secret = 'bcd4eebc1212c65eb604bc0fcc2f32f9';
 Think.answer({
     url: '/getuser_openid',
     callback: (loginCode, {response}) => {
-        console.log(`[${typeof loginCode}]：`, loginCode);
+        console.log(`[${typeof loginCode}]:`, loginCode);
         console.log(typeof Think.tool.request);
         Think.tool.request({
             url: '/sns/jscode2session',
@@ -11,7 +11,7 @@ Think.answer({
             data: {
                 appid, secret,
                 grant_type: 'authorization_code',
-                js_code: loginCode
+                js_code: loginCode.code
             },
             method: 'get',
             headers: {  
