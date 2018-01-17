@@ -9,7 +9,6 @@ Think.answer({
             js_code: loginCode.code
         };
 
-        console.log('https://api.weixin.qq.com/sns/jscode2session', data);
         Think.tool.request({
             url: '/sns/jscode2session',
             host: 'https://api.weixin.qq.com',

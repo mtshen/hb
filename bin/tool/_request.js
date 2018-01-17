@@ -62,7 +62,7 @@ function getRequestData(option) {
             option.data = tool.stringifyForm(data);
             break;
         case 'get':
-            option.url  += tool.stringifyForm(data);
+            option.url  += '?' + tool.stringifyForm(data);
             option.data = {};
             break;
     }
