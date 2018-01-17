@@ -8,5 +8,11 @@
     <h1>here is hb.iloveu666.com!</h1>
     <h4>this website does not provide any service</h4>
     <h4>so please do not visit this website</h4>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $.post('/getUser_openid', function(data) {
+            console.log(data);
+        });
+    </script>
 </body>
 </html>
