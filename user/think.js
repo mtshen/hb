@@ -7,9 +7,9 @@ Think.answer({
         const url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&grant_type=authorization_code&js_code=${loginCode.code}`;
 
         request.get({url}, function(error, res, body) {
-            console.log('https://api.weixin.qq.com:', body);
+            const openid = JSON.parse(body).openid;
             response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
-            response.end(JSON.stringify(data.data));
+            response.end(JSON.stringify({openid}));
         });
         
         return Think.END;
