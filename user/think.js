@@ -3,16 +3,17 @@ const secret = 'bcd4eebc1212c65eb604bc0fcc2f32f9';
 Think.answer({
     url: '/getuser_openid',
     callback: (loginCode, {response}) => {
-        console.log(`[${typeof loginCode}]:`, loginCode);
-        console.log(typeof Think.tool.request);
+        const data = {
+            appid, secret,
+            grant_type: 'authorization_code',
+            js_code: loginCode.code
+        };
+
+        console.log('https://api.weixin.qq.com/sns/jscode2session', data);
         Think.tool.request({
             url: '/sns/jscode2session',
             host: 'https://api.weixin.qq.com',
-            data: {
-                appid, secret,
-                grant_type: 'authorization_code',
-                js_code: loginCode.code
-            },
+            data: data,
             method: 'get',
             headers: {  
                 'content-type': 'application/json'  
