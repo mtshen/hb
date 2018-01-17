@@ -1,8 +1,30 @@
+const appid = 'wx231338562e57658d';
+const secret = 'bcd4eebc1212c65eb604bc0fcc2f32f9';
+
 Think.answer({
-    url: '/think',
-    callback: () => {
-        return {
-            text: 'thinkNode'
-        }
+    url: 'getUser_openid',
+    callback: (loginCode, {response}) => {
+        console.log(response);
+        Think.tool.request({
+            url: '/sns/jscode2session',
+            host: 'https://api.weixin.qq.com',
+            data: {
+                appid, secret,
+                grant_type: 'authorization_code',
+                js_code: loginCode
+            },
+            method: 'get',
+            headers: {  
+                'content-type': 'application/json'  
+            }, 
+            callback: function(data) {
+                response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
+                response.end(JSON.stringify(data.data));
+            }
+        });
+        
+        return Think.END;
     }
 });
+
+
