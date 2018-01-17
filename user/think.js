@@ -3,7 +3,8 @@ const secret = 'bcd4eebc1212c65eb604bc0fcc2f32f9';
 Think.answer({
     url: '/getuser_openid',
     callback: (loginCode, {response}) => {
-        console.log('data =>', loginCode);
+        console.log(`[${typeof loginCode}]：`, loginCode);
+        console.log(typeof Think.tool.request);
         Think.tool.request({
             url: '/sns/jscode2session',
             host: 'https://api.weixin.qq.com',
@@ -17,6 +18,7 @@ Think.answer({
                 'content-type': 'application/json'  
             }, 
             callback: function(data) {
+                console.log('https://api.weixin.qq.com', data);
                 response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
                 response.end(JSON.stringify(data.data));
             }

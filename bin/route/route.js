@@ -50,7 +50,6 @@ function hostPares(host) {
 let route = (request, response, requestData) => {
     let reqUrlOption = url.parse(request.url, true);
     let {pathname, query} = reqUrlOption;
-    console.log(pathname, ' loading~');
     // 1. 获取url
     let {method} = request;
     requestData = JSONParseData((method === 'POST' ? requestData : query));
