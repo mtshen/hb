@@ -20,7 +20,7 @@ class NodeList {
             this.nodeList.push(...node.get('nodeList'));
         }.bind(this));
         this.nodeList.sort((nodeA, nodeB) => {
-            return (nodeA.priority || 0) - (NodeB.priority || 0);
+            return (nodeA.priority || 0) - (nodeB.priority || 0);
         });
     }
 
