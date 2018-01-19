@@ -17,7 +17,6 @@ Think.answer({
 
             const SQLDATA = {id: openid, balance: 0, send: 0, receive: 0, data: ''};
             if (dataList.length) {
-                console.log(JSON.stringify(dataList[0]));
                 response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
                 response.end(JSON.stringify(dataList[0]));
             } else {

@@ -97,8 +97,6 @@ class Mysql {
             conditionText.push(`${key}=?`);
         }
 
-        console.log(condition);
-        console.log(`SELECT * FROM ${tableName} where ${conditionText.join()}`);
         this.connection.query(
             `SELECT * FROM ${tableName} where ${conditionText.join()}`,
             conditionValue,
