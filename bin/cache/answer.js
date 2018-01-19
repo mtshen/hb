@@ -92,8 +92,19 @@ function initUserFilesRoute(AnswerMap, userPath) {
 	AnswerMap.set('nodeList', []);
 	stats.forEach((stat) => {
 		let filePath = path.join(userPath, stat);
+		// noload数据不加载
+		console.log('stat', stat);
+		if (stat.startsWith('noload_')) {
+			return true;
+		}
+
 		let fileInfo = fs.statSync(filePath);
 		if (fileInfo.isFile()) {
+			// 不加载非js文件
+			if (stat.endsWith('.js')) {
+				return true;
+			}
+
 			let nodeInfo = new Map;
 			nodeInfo.set('filePath', filePath);
 			nodeInfo.set('fileInfo', fileInfo);

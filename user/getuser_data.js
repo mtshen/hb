@@ -1,4 +1,4 @@
-const operation = require('../utils/mysql/operation');
+const operation = require('./noload_public/operation');
 
 /**
  * 查询用户数据
