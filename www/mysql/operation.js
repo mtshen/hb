@@ -2,7 +2,7 @@
 const mysql = require('mysql');
 const option = require('./option.json');
 const sql = new Mysql(option);
-
+console.log('option =>', option);
 class Mysql {
     constructor(option) {
         super();
