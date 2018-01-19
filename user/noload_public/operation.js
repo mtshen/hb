@@ -1,8 +1,7 @@
 // 操作sql测试
 const mysql = require('mysql');
 const option = require('./option.json');
-const sql = new Mysql(option);
-console.log('option =>', option);
+
 class Mysql {
     constructor(option) {
         super();
@@ -84,5 +83,7 @@ class Mysql {
         }
     }
 }
+
+const sql = new Mysql(option);
 
 module.exports = sql;
