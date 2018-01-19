@@ -78,7 +78,9 @@ class Mysql {
         for (let key in condition) {
             conditionText.push(`${key}=${condition[key]}`);
         }
-
+        
+        console.log(condition);
+        console.log(`SELECT * FROM ${tableName} where ${conditionText.join()}`);
         this.connection.query(`SELECT * FROM ${tableName} where ${conditionText.join()}`, callback);
     }
 
