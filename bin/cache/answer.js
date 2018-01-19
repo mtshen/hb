@@ -120,7 +120,6 @@ function initUserFilesRoute(AnswerMap, userPath) {
 				__ISMASTER && (Think.log(filePath, error), 
 					console.log(ThinkInfo('loadFileError').error), 
 					console.log(filePath.error));
-					console.log(error);
 			};
 			
 			// 结束域缓存

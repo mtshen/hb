@@ -4,7 +4,6 @@ const option = require('./option.json');
 
 class Mysql {
     constructor(option) {
-        super();
         this.connection = mysql.createConnection(option);
         this.swit = false; // true：开启, false: 关闭
     }
