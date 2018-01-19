@@ -17,7 +17,7 @@ connection.query(addSql, addSqlParams, function (err, result) {
         console.log('[INSERT ERROR] - ', err.message);
         return;
     }
-    console('成功 =>', result);
+    console.log('成功 =>', result);
 });
 
 connection.end();
