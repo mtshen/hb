@@ -31,14 +31,17 @@ class Mysql {
         this.connect();
         let tableDataList = [];
         let tableKeyList = [];
-
+        let seat;
         for (let tableKey in tableData) {
             tableDataList.push(tableData[tableKey]);
             tableKeyList.push(tableKey);
         }
 
+        seat = tableDataList.map(() => '?');
+
         this.connection.query(
-            `INSERT INTO ${tableName}(${tableKeyList.join()}) VALUES(${tableDataList.join()})`,
+            `INSERT INTO ${tableName}(${tableKeyList.join()}) VALUES(${seat.join()})`,
+            tableDataList,
             callback
         );
     }
@@ -47,11 +50,17 @@ class Mysql {
     remove(tableName, condition, callback = this.invalidCallback) {
         this.connect();
         let conditionText = [];
+        let conditionValue = [];
         for (let key in condition) {
-            conditionText.push(`${key}=${condition[key]}`);
+            conditionValue.push(condition[key]);
+            conditionText.push(`${key}=?`);
         }
 
-        connection.query(`DELETE FROM ${tableName} where ${conditionText.join()}`, callback);
+        connection.query(
+            `DELETE FROM ${tableName} where ${conditionText.join()}`, 
+            conditionValue,
+            callback
+        );
     }
 
     // mysql 数据改 表名/修改数据/修改条件/回调函数
@@ -59,15 +68,22 @@ class Mysql {
         this.connect();
         let tableDataText = [];
         let conditionText = [];
+        let keys = [];
         for (let key in tableData) {
-            tableDataText.push(`${key}=${tableData[key]}`);
+            keys.push(tableData[key]);
+            tableDataText.push(`${key}=?`);
         }
 
         for (let key in condition) {
-            conditionText.push(`${key}=${condition[key]}`);
+            keys.push(condition[key]);
+            conditionText.push(`${key}=?`);
         }
 
-        connection.query(`UPDATE ${tableName} SET ${tableDataText.join()} WHERE ${conditionText.join()}`, callback);
+        connection.query(
+            `UPDATE ${tableName} SET ${tableDataText.join()} WHERE ${conditionText.join()}`,
+            keys,
+            callback
+        );
     }
 
     // mysql 数据查
@@ -75,13 +91,19 @@ class Mysql {
         this.connect();
 
         let conditionText = [];
+        let conditionValue = [];
         for (let key in condition) {
-            conditionText.push(`${key}=${condition[key]}`);
+            conditionValue.push(condition[key]);
+            conditionText.push(`${key}=?`);
         }
-        
+
         console.log(condition);
         console.log(`SELECT * FROM ${tableName} where ${conditionText.join()}`);
-        this.connection.query(`SELECT * FROM ${tableName} where ${conditionText.join()}`, callback);
+        this.connection.query(
+            `SELECT * FROM ${tableName} where ${conditionText.join()}`,
+            conditionValue,
+            callback
+        );
     }
 
     invalidCallback(error) {
