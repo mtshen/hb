@@ -8,7 +8,6 @@ Think.answer({
     url: '/getuser_data',
     callback: (data, {response}) => {
         const openid = data.openid;
-        console.log('1111');
 
         // 测试数据
         operation.query('user', {id: openid}, (error, dataList) => {

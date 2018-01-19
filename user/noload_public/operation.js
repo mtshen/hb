@@ -71,9 +71,15 @@ class Mysql {
     }
 
     // mysql 数据查
-    query(tableName, callback = this.invalidCallback) {
+    query(tableName, condition, callback = this.invalidCallback) {
         this.connect();
-        this.connection.query(`SELECT * FROM ${tableName}`, callback);
+
+        let conditionText = [];
+        for (let key in condition) {
+            conditionText.push(`${key}=${condition[key]}`);
+        }
+
+        this.connection.query(`SELECT * FROM ${tableName} where ${conditionText.join()}`, callback);
     }
 
     invalidCallback(error) {
