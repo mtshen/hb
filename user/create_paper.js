@@ -4,7 +4,7 @@ const operation = require('./noload_public/operation');
 Think.answer({
     url: '/create_order',
     callback: (data, {response}) => {
-        let {money, }
+        // let {money, }
         // 测试连接
         response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
         response.end(JSON.stringify({ok: true}));

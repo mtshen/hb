@@ -103,6 +103,12 @@ class Mysql {
             callback
         );
     }
+    
+    // mysql 查询数据长度
+    length(tableName, column = '*', callback = this.invalidCallback) {
+        this.connect();
+        this.connection.query(`SELECT COUNT(${column}) FROM ${tableName}`, callback);
+    }
 
     invalidCallback(error) {
         if (error) {
