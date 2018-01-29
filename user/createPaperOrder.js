@@ -14,7 +14,7 @@ Think.answer({
                 return errorHandle(error, response);
             }
 
-            console.log('dataList>', dataList);
+            console.log('dataList>', typeof dataList[0], dataList[0]);
             // getOperationId();
 
             // 返回数据
