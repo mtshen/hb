@@ -1,13 +1,10 @@
 // 创建订单及订单状态变更
 const operation = require('./noload_public/operation');
 
-/**
- * 这里使用伪连接的方式传输数据
- */
 Think.answer({
-    url: '/data/image/order.jpg',
+    url: '/create_order',
     callback: (data, {response}) => {
-        
+        let {money, }
         // 测试连接
         response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
         response.end(JSON.stringify({ok: true}));

@@ -1,6 +1,6 @@
 const request = require('request');
-const appid = 'wx231338562e57658d';
-const secret = 'bcd4eebc1212c65eb604bc0fcc2f32f9';
+const conf = require('./noload_public/option.json');
+const {appid, secret} = conf;
 Think.answer({
     url: '/getuser_openid',
     callback: (loginCode, {response}) => {
