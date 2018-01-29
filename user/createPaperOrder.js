@@ -4,8 +4,8 @@ const getOperationId = require('./noload_public/getoperationid');
 
 Think.answer({
     url: '/createPaperOrder',
-    callback: (data, {response}) => {
-        let {moneyTotal, openid, paperId, data} = data;
+    callback: (json, {response}) => {
+        let {moneyTotal, openid, paperId, data} = json;
 
         // 请求新的数据ID
         operation.length('bargain', 'id', (error, dataList) => {
