@@ -60,6 +60,7 @@ let route = (request, response, requestData) => {
     // 5. 匹配接口
     let nodeList = new NodeList(answer);
     let data = nodeList.get(pathname, request);
+    console.log(data);
     if (data) {
         let {callback, ContentType = 'application/json; charset=utf-8'} = data;
         let cbFlag;

@@ -1,7 +1,7 @@
 const request = require('request');
 const conf = require('./utils/option.json');
 const {appid, secret} = conf;
-console.log('llllllllllllllllllllllllll');
+
 /**
  * 获取用户的openid
  */
