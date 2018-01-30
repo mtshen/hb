@@ -38,7 +38,9 @@ class Mysql {
         }
 
         seat = tableDataList.map(() => '?');
-
+        console.log(`INSERT INTO ${tableName}(${tableKeyList.join()}) VALUES(${seat.join()})`);
+        console.log('>>>>>>>>>>>>>>');
+        console.log(tableDataList);
         this.connection.query(
             `INSERT INTO ${tableName}(${tableKeyList.join()}) VALUES(${seat.join()})`,
             tableDataList,
