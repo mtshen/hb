@@ -1,5 +1,5 @@
-const operation = require('./noload_public/operation');
-const errorHandle = require('./noload_public/errorHandle');
+const operation = require('./utils/operation');
+const errorHandle = require('./utils/error/errorHandle');
 const INTERFACE_NAME = '/getuser_data';
 
 /**

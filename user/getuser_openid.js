@@ -1,5 +1,5 @@
 const request = require('request');
-const conf = require('./noload_public/option.json');
+const conf = require('./utils/option.json');
 const {appid, secret} = conf;
 
 /**

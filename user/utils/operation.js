@@ -1,4 +1,4 @@
-// 操作sql测试
+// 操作sql
 const mysql = require('mysql');
 const option = require('./option.json');
 

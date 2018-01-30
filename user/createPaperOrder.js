@@ -1,9 +1,10 @@
 // 创建订单及订单状态变更
-const operation = require('./noload_public/operation');
-const getOperationId = require('./noload_public/getoperationid');
-const getUserInfo = require('./noload_public/getUserInfo');
-const errorHandle = require('./noload_public/errorHandle');
-const {getNowDate} = require('./noload_public/getNowDate');
+const operation = require('./utils/operation');
+const {getNowDate} = require('./utils/getNowDate');
+const getOperationId = require('./utils/getoperationid');
+const errorHandle = require('./utils/error/errorHandle');
+const getUserInfo = require('./utils/userInfo/getUserInfo');
+
 const INTERFACE_NAME = '/createPaperOrder';
 
 /**

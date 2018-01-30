@@ -1,4 +1,4 @@
-const operation = require('./noload_public/operation');
+const operation = require('../operation');
 
 /**
  * 查询某个用户的数据
