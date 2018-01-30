@@ -57,9 +57,11 @@ Think.answer({
                         return errorHandle(error, response, INTERFACE_NAME);
                     }
 
+                    console.log(total, moneyTotal);
                     let money = total < moneyTotal ? moneyTotal - total : 0;
                     let surplusMoney = money === moneyTotal ? 0 : total - money;
                     userData.total = surplusMoney;
+
                     updateUserInfo(openid, userData, function(error) {
                         // 错误处理
                         if (error) {

@@ -81,7 +81,7 @@ class Mysql {
 
         console.log(`UPDATE ${tableName} SET ${tableDataText.join()} WHERE ${conditionText.join()}`);
         console.log(keys);
-        connection.query(
+        this.connection.query(
             `UPDATE ${tableName} SET ${tableDataText.join()} WHERE ${conditionText.join()}`,
             keys,
             callback
