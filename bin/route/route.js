@@ -89,7 +89,7 @@ let route = (request, response, requestData) => {
             };
         } catch (error) {
             Think.log(pathname, error);
-            console.log('[x]'.error, pathname, '(', ThinkInfo('InterError').error, ')');
+            console.log(`[x]${pathname}(`, ThinkInfo('InterError').error, ')');
         };
 
     } else {
