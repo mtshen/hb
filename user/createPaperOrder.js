@@ -40,8 +40,6 @@ Think.answer({
                 // 得到新的id
                 const id = getOperationId(length + 1);
                 
-                console.log(getNowDate());
-                
                 // 创建红包信息
                 operation.add('bargain', {
                     id: id, 
@@ -50,7 +48,7 @@ Think.answer({
                     userid: openid, 
                     balance: moneyTotal,
                     date: getNowDate().dateTime, 
-                    data: data, 
+                    data: JSON.stringify(data), 
                     state: 0
                 }, (error) => {
                     // 错误处理
