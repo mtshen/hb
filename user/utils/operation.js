@@ -111,8 +111,10 @@ class Mysql {
             if (error) {
                 callback(error);
             } else {
-                console.log(Number(data[0]));
-                callback(data[0]);
+                console.log(typeof data[0]);
+                console.log(data[0]);
+                console.log(data[0].solution);
+                callback(void 0, data[0]);
             }
         });
     }
