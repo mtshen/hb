@@ -20,7 +20,7 @@ Think.answer({
     callback: (json, {response}) => {
         let {moneyTotal, openid, paperId, data} = json;
         // 获取用户信息
-        getUserInfo(openid, (error, userData) => {
+        getUserInfo(openid, (error, userDatas) => {
             // 错误处理
             if (error) {
                 console.log('getUserInfo');
@@ -28,6 +28,7 @@ Think.answer({
             }
 
             // 获取用户目前可用余额
+            const userData = userDatas[0];
             const {total} = userData;
 
             // 请求新的数据ID
@@ -53,7 +54,6 @@ Think.answer({
                 }, (error) => {
                     // 错误处理
                     if (error) {
-                        console.log('add');
                         return errorHandle(error, response, INTERFACE_NAME);
                     }
 
