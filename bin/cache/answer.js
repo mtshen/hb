@@ -4,6 +4,7 @@ const path = require('path');
 
 // 用户接口地址, 开启子域后只针对www域名生效
 const $userPath = Think.option.user.path; // d:/user/
+const $exclude = Think.option.user.exclude;
 // 是否子域
 const $offsprdomain = Think.option.offsprdomain;
 // 文件地址
@@ -92,8 +93,9 @@ function initUserFilesRoute(AnswerMap, userPath) {
 	AnswerMap.set('nodeList', []);
 	stats.forEach((stat) => {
 		let filePath = path.join(userPath, stat);
-		// noload数据不加载
-		if (stat.startsWith('noload_')) {
+		// 某些数据不加载
+		
+		if ( $exclude && $exclude.test(filePath)) {
 			return true;
 		}
 

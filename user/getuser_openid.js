@@ -1,6 +1,10 @@
 const request = require('request');
 const conf = require('./noload_public/option.json');
 const {appid, secret} = conf;
+
+/**
+ * 获取用户的openid
+ */
 Think.answer({
     url: '/getuser_openid',
     callback: (loginCode, {response}) => {
