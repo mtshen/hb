@@ -111,10 +111,8 @@ class Mysql {
             if (error) {
                 callback(error);
             } else {
-                console.log(typeof data[0]);
-                console.log(data[0]);
-                console.log(data[0].solution);
-                callback(void 0, data[0]);
+                console.log(data[0][`COUNT(${column})`]);
+                callback(void 0, data[0][`COUNT(${column})`]);
             }
         });
     }
