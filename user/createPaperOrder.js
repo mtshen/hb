@@ -4,6 +4,7 @@ const {getNowDate} = require('./utils/getNowDate');
 const getOperationId = require('./utils/getoperationid');
 const errorHandle = require('./utils/error/errorHandle');
 const getUserInfo = require('./utils/userInfo/getUserInfo');
+const updateUserInfo = require('./utils/userInfo/updateUserInfo');
 
 const INTERFACE_NAME = '/createPaperOrder';
 
@@ -55,13 +56,17 @@ Think.answer({
                     }
 
                     let money = total < moneyTotal ? moneyTotal - total : 0;
-                    let surplusMoney = 
-                    // 返回数据
-                    response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
-                    response.end({
-                        id: id,
-                        money: money
+                    let surplusMoney = money === moneyTotal ? 0 : total - money;
+                    userData.total = surplusMoney;
+                    updateUserInfo(openid, userData, function(error) {
+                        // 错误处理
+                        if (error) {
+                            return errorHandle(error, response, INTERFACE_NAME);
+                        }
 
+                        // 返回数据
+                        response.writeHead(200, {"Content-Type": 'application/json; charset=utf-8'});
+                        response.end(JSON.stringify({id: id, money: money}));
                     });
                 });
             });
