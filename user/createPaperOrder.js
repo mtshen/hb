@@ -48,7 +48,7 @@ Think.answer({
                     userid: openid, 
                     balance: moneyTotal,
                     date: getNowDate().dateTime, 
-                    // data: JSON.stringify(data), 
+                    data: encodeURIComponent(JSON.stringify(data)), 
                     state: 0
                 }, (error) => {
                     // 错误处理

@@ -68,6 +68,7 @@ class Mysql {
     // mysql 数据改 表名/修改数据/修改条件/回调函数
     update(tableName, tableData = {}, condition = {}, callback = this.invalidCallback) {
         this.connect();
+
         let tableDataText = [];
         let conditionText = [];
         let keys = [];
@@ -81,6 +82,8 @@ class Mysql {
             conditionText.push(`${key}=?`);
         }
 
+        console.log(`UPDATE ${tableName} SET ${tableDataText.join()} WHERE ${conditionText.join()}`);
+        console.log(keys);
         connection.query(
             `UPDATE ${tableName} SET ${tableDataText.join()} WHERE ${conditionText.join()}`,
             keys,
