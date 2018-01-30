@@ -94,7 +94,7 @@ function initUserFilesRoute(AnswerMap, userPath) {
 	stats.forEach((stat) => {
 		let filePath = path.join(userPath, stat);
 		// 某些数据不加载
-		
+		console.log('filePath >>>> ', filePath);
 		if ( $exclude && $exclude.test(filePath)) {
 			return true;
 		}
