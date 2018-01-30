@@ -23,6 +23,7 @@ Think.answer({
         getUserInfo(openid, (error, userData) => {
             // 错误处理
             if (error) {
+                console.log('getUserInfo');
                 return errorHandle(error, response, INTERFACE_NAME);
             }
 
@@ -33,6 +34,7 @@ Think.answer({
             operation.length('bargain', 'id', (error, length) => {
                 // 错误处理
                 if (error) {
+                    console.log('length');
                     return errorHandle(error, response, INTERFACE_NAME);
                 }
 
@@ -52,6 +54,7 @@ Think.answer({
                 }, (error) => {
                     // 错误处理
                     if (error) {
+                        console.log('add');
                         return errorHandle(error, response, INTERFACE_NAME);
                     }
 
@@ -61,6 +64,7 @@ Think.answer({
                     updateUserInfo(openid, userData, function(error) {
                         // 错误处理
                         if (error) {
+                            console.log('update');
                             return errorHandle(error, response, INTERFACE_NAME);
                         }
 

@@ -98,7 +98,6 @@ function initUserFilesRoute(AnswerMap, userPath) {
 		if ( $exclude && $exclude.test(stat)) {
 			return true;
 		}
-		console.log(stat);
 
 		let fileInfo = fs.statSync(filePath);
 		if (fileInfo.isFile()) {
