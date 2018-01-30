@@ -93,10 +93,12 @@ function initUserFilesRoute(AnswerMap, userPath) {
 	AnswerMap.set('nodeList', []);
 	stats.forEach((stat) => {
 		let filePath = path.join(userPath, stat);
-		// 某些数据不加载
-		if ( $exclude && $exclude.test(filePath)) {
+		
+		// 屏蔽某些文件的预加载, 能有效提高性能
+		if ( $exclude && $exclude.test(stat)) {
 			return true;
 		}
+		console.log(stat);
 
 		let fileInfo = fs.statSync(filePath);
 		if (fileInfo.isFile()) {
