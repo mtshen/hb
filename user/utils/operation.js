@@ -38,6 +38,9 @@ class Mysql {
         }
 
         seat = tableDataList.map(() => '?');
+        
+        console.log(`INSERT INTO ${tableName}(${tableKeyList.join()}) VALUES(${seat.join()})`);
+        console.log(tableDataList);
 
         this.connection.query(
             `INSERT INTO ${tableName}(${tableKeyList.join()}) VALUES(${seat.join()})`,
@@ -111,7 +114,6 @@ class Mysql {
             if (error) {
                 callback(error);
             } else {
-                console.log(data[0][`COUNT(${column})`]);
                 callback(void 0, data[0][`COUNT(${column})`]);
             }
         });

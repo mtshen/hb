@@ -34,13 +34,12 @@ Think.answer({
             operation.length('bargain', 'id', (error, length) => {
                 // 错误处理
                 if (error) {
-                    console.log('length');
                     return errorHandle(error, response, INTERFACE_NAME);
                 }
 
                 // 得到新的id
                 const id = getOperationId(length + 1);
-
+                console.log(getNowDate().dateTime);
                 // 创建红包信息
                 operation.add('bargain', {
                     id: id, 
