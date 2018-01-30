@@ -29,7 +29,7 @@ Think.answer({
 
             // 获取用户目前可用余额
             const userData = userDatas[0];
-            const {total} = userData;
+            const {balance = 0} = userData;
 
             // 请求新的数据ID
             operation.length('bargain', 'id', (error, length) => {
@@ -57,10 +57,10 @@ Think.answer({
                         return errorHandle(error, response, INTERFACE_NAME);
                     }
 
-                    console.log(total, moneyTotal);
-                    let money = total < moneyTotal ? moneyTotal - total : 0;
-                    let surplusMoney = money === moneyTotal ? 0 : total - money;
-                    userData.total = surplusMoney;
+                    console.log(balance, moneyTotal);
+                    let money = balance < moneyTotal ? moneyTotal - balance : 0;
+                    let surplusMoney = money === moneyTotal ? 0 : balance - money;
+                    userData.balance = surplusMoney;
 
                     updateUserInfo(openid, userData, function(error) {
                         // 错误处理
