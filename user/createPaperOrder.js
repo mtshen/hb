@@ -39,7 +39,9 @@ Think.answer({
 
                 // 得到新的id
                 const id = getOperationId(length + 1);
-                console.log(getNowDate().dateTime);
+                
+                console.log(getNowDate());
+                
                 // 创建红包信息
                 operation.add('bargain', {
                     id: id, 
