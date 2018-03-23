@@ -1,10 +1,10 @@
 {
     "host": "localhost",
     "user": "root",
-    "password": "shen1234QWER",
+    "password": "******",
     "database": "paper",
-    "appid": "wx231338562e57658d",
-    "secret": "bcd4eebc1212c65eb604bc0fcc2f32f9",
-    "mch_id": "wx231338562e57658d",
-    "mch_key": "bcd4eebc1212c65eb604bc0fcc2f32f9"
+    "appid": "*******************",
+    "secret": "******************************",
+    "mch_id": "********************",
+    "mch_key": "******************************"
 }
